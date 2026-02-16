@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Communication Designer</title>
+
+<style>
+
+/* ---------------- GLOBAL ---------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    background: linear-gradient(to top, #0c1220, #060a14);
+    color: #eaeaea;
+    overflow-x: hidden;
+}
+
+/* ---------------- HEADER ---------------- */
+
+header {
+    height: 90px;
+    background: linear-gradient(to bottom, #0b1a3a, #050a18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    height: 45px;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+    text-align: center;
+    padding: 120px 20px 80px 20px;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 48px;
+    letter-spacing: 6px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.quote {
+    font-size: 16px;
+    color: #b8b8b8;
+    margin-bottom: 40px;
+    transition: 0.4s;
+}
+
+.quote:hover {
+    transform: scale(1.1);
+}
+
+/* Squiggly line */
+
+.squiggle {
+    width: 320px;
+    height: 30px;
+    margin: 0 auto 50px auto;
+}
+
+.squiggle svg {
+    width: 100%;
+    height: 100%;
+}
+
+.squiggle path {
+    stroke: #c9a9ff;
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: draw 4s linear infinite;
+}
+
+@keyframes draw {
+    0% { stroke-dashoffset: 500; }
+    100% { stroke-dashoffset: 0; }
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+.btn {
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: 1px solid #999;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+}
+
+/* ---------------- PORTFOLIO GRID ---------------- */
+
+.portfolio {
+    padding: 80px 10%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #111827;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 18px;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+/* ---------------- EXPANDED VIEW ---------------- */
+
+.expanded {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.expanded img {
+    max-width: 75%;
+    max-height: 60vh;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.expanded h2 {
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+
+.expanded p {
+    max-width: 600px;
+    color: #ccc;
+}
+
+/* ---------------- ABOUT ---------------- */
+
+.about {
+    padding: 100px 20%;
+    text-align: center;
+}
+
+.about h2 {
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+}
+
+.about p {
+    margin-bottom: 30px;
+    color: #bbb;
+}
+
+.about img {
+    width: 200px;
+    border-radius: 50%;
+}
+
+/* ---------------- ALL ART BUTTON ---------------- */
+
+.all-art-btn {
+    text-align: center;
+    margin: 80px 0;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <img src="images/signature.jpg" class="logo">
+</header>
+
+<section class="hero">
+    <h1>COMMUNICATION DESIGNER</h1>
+    <div class="quote">"Design is emotion translated into form."</div>
+
+    <div class="squiggle">
+        <svg viewBox="0 0 500 100">
+            <path d="M10 50 Q 100 10, 190 50 T 370 50 T 490 50"/>
+        </svg>
+    </div>
+
+    <button class="btn" onclick="scrollToWork()">View Work</button>
+</section>
+
+<section class="portfolio" id="work">
+    <div class="grid">
+
+        <div class="card" onclick="expandCard(this)">
+            <img src="images/project1.jpg">
+            <div class="card-content">
+                <h3>Magzine of syd mead</h3>
+                <p>a magzine about syd mead the concept designer for blade runner.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="expandCard(this)">
+            <img src="images/project2.jpeg">
+            <div class="card-content">
+                <h3>Project Two</h3>
+                <p>Experimental digital poster series exploring form.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="expandCard(this)">
+            <img src="images/project3.jpeg">
+            <div class="card-content">
+                <h3>Project Three</h3>
+                <p>Brand communication system for conceptual studio.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="about">
+    <h2>ABOUT ME</h2>
+    <p>I am a visual storyteller focused on communication design, digital art, and experimental visual systems.</p>
+    <img src="images/profile.jpeg">
+</section>
+
+<div class="all-art-btn">
+    <button class="btn" onclick="window.location.href='all-art.html'">All Art</button>
+</div>
+
+<!-- Expanded Modal -->
+<div class="expanded" id="expandedView" onclick="closeExpanded()">
+    <img id="expandedImg">
+    <h2 id="expandedTitle"></h2>
+    <p id="expandedPara"></p>
+</div>
+
+<script>
+
+function scrollToWork() {
+    document.getElementById("work").scrollIntoView({ behavior: "smooth" });
+}
+
+function expandCard(card) {
+    const img = card.querySelector("img").src;
+    const title = card.querySelector("h3").innerText;
+    const para = card.querySelector("p").innerText;
+
+    document.getElementById("expandedImg").src = img;
+    document.getElementById("expandedTitle").innerText = title;
+    document.getElementById("expandedPara").innerText = para;
+
+    document.getElementById("expandedView").style.display = "flex";
+}
+
+function closeExpanded() {
+    document.getElementById("expandedView").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Art</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0c0d14;
+    font-family:Arial, sans-serif;
+    color:#fff;
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:40px 20px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+header h1{
+    letter-spacing:3px;
+}
+
+/* GRID */
+.art-grid{
+    display:grid;
+    grid-template-columns:repeat(8, 1fr);
+    gap:10px;
+    padding:20px;
+}
+
+.art-grid img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.art-grid img:hover{
+    transform:scale(1.08);
+    filter:brightness(110%);
+}
+
+/* MODAL */
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.95);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+
+.modal img{
+    max-width:85%;
+    max-height:85vh;
+    border-radius:8px;
+}
+
+.close-btn{
+    position:absolute;
+    top:30px;
+    right:40px;
+    font-size:30px;
+    cursor:pointer;
+    color:#fff;
+}
+
+/* BACK BUTTON */
+.back-btn{
+    display:block;
+    text-align:center;
+    margin:50px auto;
+    padding:12px 30px;
+    width:fit-content;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,0.3);
+    text-decoration:none;
+    color:#fff;
+    transition:0.3s ease;
+}
+
+.back-btn:hover{
+    background:rgba(255,255,255,0.08);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ALL ART</h1>
+</header>
+
+<div class="art-grid">
+
+<img src="images/art1.jpg" onclick="openModal(this.src)">
+<img src="images/art2.jpg" onclick="openModal(this.src)">
+<img src="images/art3.jpg" onclick="openModal(this.src)">
+<img src="images/art4.jpg" onclick="openModal(this.src)">
+<img src="images/art5.jpg" onclick="openModal(this.src)">
+<img src="images/art6.jpg" onclick="openModal(this.src)">
+<img src="images/art7.jpg" onclick="openModal(this.src)">
+<img src="images/art8.jpg" onclick="openModal(this.src)">
+
+<img src="images/art9.jpg" onclick="openModal(this.src)">
+<img src="images/art10.jpg" onclick="openModal(this.src)">
+<img src="images/art11.jpg" onclick="openModal(this.src)">
+<img src="images/art12.jpg" onclick="openModal(this.src)">
+<img src="images/art13.jpg" onclick="openModal(this.src)">
+<img src="images/art14.jpg" onclick="openModal(this.src)">
+<img src="images/art15.jpg" onclick="openModal(this.src)">
+<img src="images/art16.jpg" onclick="openModal(this.src)">
+
+<img src="images/art17.jpg" onclick="openModal(this.src)">
+<img src="images/art18.jpg" onclick="openModal(this.src)">
+<img src="images/art19.jpg" onclick="openModal(this.src)">
+<img src="images/art20.jpg" onclick="openModal(this.src)">
+<img src="images/art21.jpg" onclick="openModal(this.src)">
+<img src="images/art22.jpg" onclick="openModal(this.src)">
+<img src="images/art23.jpg" onclick="openModal(this.src)">
+<img src="images/art24.jpg" onclick="openModal(this.src)">
+
+<img src="images/art25.jpg" onclick="openModal(this.src)">
+<img src="images/art26.jpg" onclick="openModal(this.src)">
+<img src="images/art27.jpg" onclick="openModal(this.src)">
+<img src="images/art28.jpg" onclick="openModal(this.src)">
+<img src="images/art29.jpg" onclick="openModal(this.src)">
+<img src="images/art30.jpg" onclick="openModal(this.src)">
+<img src="images/art31.jpg" onclick="openModal(this.src)">
+<img src="images/art32.jpg" onclick="openModal(this.src)">
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="close-btn" onclick="closeModal()">✕</div>
+    <img id="modal-img">
+</div>
+
+<a href="index.html" class="back-btn">Back to Portfolio</a>
+
+<script>
+function openModal(src){
+    document.getElementById("modal").style.display="flex";
+    document.getElementById("modal-img").src = src;
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+
+window.onclick = function(event){
+    const modal = document.getElementById("modal");
+    if(event.target === modal){
+        modal.style.display="none";
+    }
+}
+</script>
+
+</body>
+</html>
